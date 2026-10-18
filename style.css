@@ -1,0 +1,142 @@
+/* ========= Portfolio design system ========= */
+:root {
+  --pf-bg: #171a2b;
+  --pf-bg-alt: #1c2033;
+  --pf-card: #232842;
+  --pf-text: #eceef8;
+  --pf-muted: #aeb2c9;
+  --pf-accent: #3ddbc0;
+  --pf-accent-2: #4f8df0;
+  --pf-line: rgba(255, 255, 255, 0.1);
+  --pf-grad: linear-gradient(120deg, var(--pf-accent), var(--pf-accent-2));
+}
+
+html { scroll-behavior: smooth; }
+
+.pf {
+  background: var(--pf-bg);
+  color: var(--pf-text);
+  font-family: "DM Sans", sans-serif;
+  min-height: 100vh;
+}
+.pf h1, .pf h2, .pf h4, .pf h5, .pf-brand { font-family: "Space Grotesk", sans-serif; }
+
+/* Navbar */
+.pf-nav {
+  background: rgba(23, 26, 43, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--pf-line);
+}
+.pf-brand { font-weight: 700; font-size: 1.5rem; }
+.pf-brand span, .pf-h2 span { color: var(--pf-accent); }
+.pf .nav-link { color: var(--pf-muted) !important; }
+.pf .nav-link:hover { color: var(--pf-accent) !important; }
+
+/* Hero */
+.pf-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 60px;
+  background:
+    radial-gradient(circle at 80% 30%, rgba(79, 141, 240, 0.22), transparent 45%),
+    radial-gradient(circle at 10% 80%, rgba(61, 219, 192, 0.15), transparent 40%);
+}
+.pf-badge {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  border-radius: 99px;
+  border: 1px solid var(--pf-line);
+  color: var(--pf-accent);
+  font-size: 0.85rem;
+}
+.pf-title { font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 700; line-height: 1.05; }
+.pf-grad {
+  background: var(--pf-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.pf-lead { color: var(--pf-muted); font-size: 1.15rem; max-width: 560px; margin-top: 1rem; }
+.pf-btn {
+  background: var(--pf-grad);
+  color: var(--pf-bg);
+  font-weight: 600;
+  padding: 0.75rem 1.6rem;
+  border: none;
+  border-radius: 12px;
+  transition: transform 0.2s;
+}
+.pf-btn:hover { transform: translateY(-3px); color: var(--pf-bg); }
+.pf-btn-outline {
+  border: 1px solid var(--pf-accent);
+  color: var(--pf-accent);
+  padding: 0.75rem 1.6rem;
+  border-radius: 12px;
+}
+.pf-btn-outline:hover { background: var(--pf-accent); color: var(--pf-bg); }
+.pf-stats b { display: block; font-family: "Space Grotesk"; font-size: 1.8rem; color: var(--pf-accent); }
+.pf-stats small { color: var(--pf-muted); }
+
+/* Photo */
+.pf-photo {
+  width: min(320px, 75vw);
+  aspect-ratio: 1;
+  margin: auto;
+  border-radius: 50%;
+  padding: 6px;
+  background: var(--pf-grad);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pf-float 5s ease-in-out infinite;
+  box-shadow: 0 30px 80px -20px rgba(61, 219, 192, 0.5);
+}
+.pf-photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--pf-card);
+}
+@keyframes pf-float { 50% { transform: translateY(-14px); } }
+
+/* Sections & cards */
+.pf-section { padding: 90px 0; }
+.pf-alt { background: var(--pf-bg-alt); }
+.pf-h2 { display: flex; gap: 0.6rem; font-weight: 700; margin-bottom: 2.5rem; font-size: 2rem; }
+.pf-muted { color: var(--pf-muted); }
+.pf-card {
+  background: var(--pf-card);
+  border: 1px solid var(--pf-line);
+  border-radius: 18px;
+  padding: 1.6rem;
+  color: var(--pf-text);
+  text-decoration: none;
+  transition: transform 0.25s, border-color 0.25s;
+}
+.pf-project:hover, .pf-contact:hover {
+  transform: translateY(-6px);
+  border-color: var(--pf-accent);
+  color: var(--pf-text);
+}
+.pf-contact small { color: var(--pf-accent); }
+.pf-contact div { word-break: break-all; }
+.pf-tag {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 99px;
+  background: rgba(61, 219, 192, 0.15);
+  color: var(--pf-accent);
+}
+.pf-link { color: var(--pf-accent); text-decoration: none; font-weight: 500; }
+.pf-progress { height: 8px; background: var(--pf-card); }
+.pf-progress .progress-bar { background: var(--pf-grad); }
+
+/* Footer */
+.pf-footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--pf-muted);
+  border-top: 1px solid var(--pf-line);
+}
