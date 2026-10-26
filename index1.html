@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Result Checker</h2>
+    <input id = "name" type = "text" placeholder="Student Name">
+    <input id = "m1" type = "number" placeholder="Math Marks (0-100)">
+    <input id = "m2" type = "number" placeholder="Science Marks (0-100)">
+    <input id = "m3" type = "number" placeholder="English Marks (0-100)">
+
+    <button onclick="check()">Check Result</button>
+    <div id = "resultBox">
+        <p id = "p1">Result will appear here</p>
+        <p id="p2"></p>
+        <p id="p3"></p>
+        <p id="p4"></p>
+        <p id="p5"></p>
+        <p id="p6"></p>
+    </div>
+    <script>
+        function check(){
+            let m1 = Number(document.getElementById("m1").value);
+            let m2 = Number(document.getElementById("m2").value);
+            let m3 = Number(document.getElementById("m3").value);
+
+            if(m1 >= 33 && m2 >= 33 && m3 >= 33){
+                document.getElementById("p1").innerText = "STATUS PASS";
+                alert("PASS");
+            }
+            else{
+                document.getElementById("p1").innerText = "STATUS: FAIL ";
+                alert("FAIL"); 
+            }
+            let total = m1+m2+m3;
+            let percent = total/3;
+            let grade = " ";
+            if(percent >= 80){
+                grade = "A+";
+            } else if(percent >= 70){
+                grade = "A";
+            } else if(percent >= 60){
+                grade = "B";
+            } else if(percent >= 50){
+                grade = "C";
+            } else if(percent >= 40){
+                grade = "D";
+            } else{
+                grade = "F"
+            }
+            document.getElementById("p2").innerText = "Total: "+ total;
+            document.getElementById("p3").innerText = "Percent: "+ percent + "%";
+            document.getElementById("p4").innerText = "Grade: "+ grade;
+        }
+    
+    </script>
+</body>
+</html>
